@@ -1,0 +1,14 @@
+{
+  "name": "__PACKAGE_ID__",
+  "version": "0.1.0",
+  "displayName": "__DISPLAY_NAME__",
+  "description": "__DESCRIPTION__",
+  "unity": "__UNITY__",
+  "author": {
+    "name": "__AUTHOR__",
+    "url": "https://github.com/__AUTHOR__"
+  },
+  "license": "MIT",
+  "keywords": [],
+  "dependencies": {}
+}
