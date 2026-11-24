@@ -72,12 +72,17 @@ Get-ChildItem $templateDir -Recurse -File -Force | ForEach-Object {
 }
 
 Push-Location $OutDir
+# Windows PowerShell 5.1, git'in stderr'e yazdığı zararsız uyarıları (ör. "LF will be replaced by CRLF")
+# hata sayar; "Stop" modunda script yarıda kalırdı. Git komutlarında sadece çıkış koduna bak.
+$ErrorActionPreference = "Continue"
 try {
-    git init -q -b main
-    git add -A
-    git commit -q -m "Initial package scaffold ($PackageId)"
+    git init -q -b main 2>&1 | Out-Null
+    git add -A 2>&1 | Out-Null
+    git commit -q -m "Initial package scaffold ($PackageId)" 2>&1 | Out-Null
+    if ($LASTEXITCODE -ne 0) { throw "git commit başarısız oldu." }
     if ($GitHub) {
         gh repo create "$Author/$Name" --public --source . --description $Description --push
+        if ($LASTEXITCODE -ne 0) { throw "GitHub reposu oluşturulamadı." }
     }
 }
 finally { Pop-Location }
