@@ -121,3 +121,8 @@ Seçenekler: `-Author` (varsayılan `Atthree`), `-Namespace`, `-PackageId`, `-Un
 
 Sürümleme ([SemVer](https://semver.org)): hata düzeltme → `0.2.1`, yeni özellik → `0.3.0`, eski
 kodu bozan değişiklik → `1.0.0`.
+
+---
+
+🤖 *This project was developed with the help of AI tools.*  
+🤖 *Bu proje yapay zekâ araçlarının yardımıyla geliştirilmiştir.*
